@@ -1,0 +1,9 @@
+# Maximum width for code
+max_width = 100
+
+
+# Maximum width for comments
+# Note: for now, Comment length max width Cargo Fmt option is only available with Nightly compiler
+# So can't quite configure it here unless I switch to nightly compiler
+# but then could with comment_width
+
