@@ -1,3 +1,8 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(non_snake_case)]
+// TODO: Remove above
+
 use minifb::{Key, Window, WindowOptions};
 
 const WIDTH: usize = 640;
@@ -21,6 +26,10 @@ fn main() {
         for i in buffer.iter_mut() {
             *i = 0x00FF0000;
         }
+        let keysPressed = window.get_keys_pressed(minifb::KeyRepeat::No);
+        if !keysPressed.is_empty() {
+            eprintln!("keysPressed = {:?}", keysPressed);
+        }         
 
         // We unwrap here as we want this code to exit if it fails. Real applications may want to handle this in a different way
         window
