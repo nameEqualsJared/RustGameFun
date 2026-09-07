@@ -19,7 +19,7 @@ fn main() {
 
     while window.is_open() && !window.is_key_down(Key::Escape) {
         for i in buffer.iter_mut() {
-            *i = rand::random_range(u32::MIN..=u32::MAX);
+            *i = 0x00FF0000;
         }
 
         // We unwrap here as we want this code to exit if it fails. Real applications may want to handle this in a different way
