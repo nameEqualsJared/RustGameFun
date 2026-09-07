@@ -1,7 +1,7 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
-#![allow(non_snake_case)]
 // TODO: Remove above
+#![allow(non_snake_case)]
 
 use minifb::{Key, Window, WindowOptions};
 
