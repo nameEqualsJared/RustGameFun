@@ -29,11 +29,9 @@ fn main() {
         let keysPressed = window.get_keys_pressed(minifb::KeyRepeat::No);
         if !keysPressed.is_empty() {
             eprintln!("keysPressed = {:?}", keysPressed);
-        }         
+        }
 
         // We unwrap here as we want this code to exit if it fails. Real applications may want to handle this in a different way
-        window
-            .update_with_buffer(&buffer, WIDTH, HEIGHT)
-            .unwrap();
+        window.update_with_buffer(&buffer, WIDTH, HEIGHT).unwrap();
     }
 }
