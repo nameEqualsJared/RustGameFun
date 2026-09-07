@@ -12,9 +12,7 @@ fn main() {
         HEIGHT,
         WindowOptions::default(),
     )
-    .unwrap_or_else(|e| {
-        panic!("{}", e);
-    });
+    .unwrap();
 
     // Limit to max ~60 fps update rate
     window.set_target_fps(60);
