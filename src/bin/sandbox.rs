@@ -33,15 +33,13 @@ fn main() {
             println!("keysPressed = {:?}", keysPressed);
         }
 
-        // We unwrap here as we want this code to exit if it fails. Real applications may want to handle this in a different way
-        window.update_with_buffer(&buffer, WIDTH, HEIGHT).unwrap();
-
-
         let keysReleased = window.get_keys_released();
         if !keysReleased.is_empty() {
-            println!("in");
             println!("keysReleased = {:?}", keysReleased);
         }
+
+        // We unwrap here as we want this code to exit if it fails. Real applications may want to handle this in a different way
+        window.update_with_buffer(&buffer, WIDTH, HEIGHT).unwrap();
 
     }
 }
