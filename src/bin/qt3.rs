@@ -22,6 +22,7 @@ fn main() {
     // Limit to max ~60 fps update rate
     window.set_target_fps(60);
 
+    let mut i: u128 = 0;
     while window.is_open() && !window.is_key_down(Key::Escape) {
         for i in buffer.iter_mut() {
             *i = 0x00FF0000;
@@ -29,17 +30,27 @@ fn main() {
 
         let keysPressed = window.get_keys_pressed(minifb::KeyRepeat::No);
         if !keysPressed.is_empty() {
-            // eprintln!("keysPressed = {:?}", keysPressed);
-            println!("keysPressed = {:?}", keysPressed);
-        }
-
-        let keysReleased = window.get_keys_released();
-        if !keysReleased.is_empty() {
-            println!("keysReleased = {:?}", keysReleased);
+            println!("{} | keysPressed = {:?}", i, keysPressed);
         }
 
         // We unwrap here as we want this code to exit if it fails. Real applications may want to handle this in a different way
         window.update_with_buffer(&buffer, WIDTH, HEIGHT).unwrap();
 
+        let keysReleased = window.get_keys_released();
+        if !keysReleased.is_empty() {
+            println!("{} | keysReleased = {:?}", i, keysReleased);
+        }
+
+
+        i+=1;
     }
 }
+
+// With above, i did see one of these:
+//
+// 1852 | keysPressed = [E]
+// 1852 | keysReleased = [E]
+//
+// typically the keysReleased is a frame or 2 after
+// but I have seen one instance where it wasn't!
+//
